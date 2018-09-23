@@ -17,17 +17,12 @@ Az adatokat 4 táblában tároljuk:
 * A **orders** tábla egy rendelés kapcsolótábla, amiből kiolvasható, hogy melyik vetítésre kért jegyet egy user
 
 ## Fogalomjegyzék
-**mozi**: az a hely, ahol filmeket vetítenek
-
-**film**: ezt vetítik a moziban
-
-**vetítés**: megmutatja, hogy egy moziban milyen filmet vetítenek 3d-ben vagy sem
-
-**rendelés**: megmutatja, hogy egy felhasználó melyik vetítésre vett jegyet
+**mozi**: az a hely, ahol filmeket vetítenek  
+**film**: ezt vetítik a moziban  
+**vetítés**: megmutatja, hogy egy moziban milyen filmet vetítenek 3d-ben vagy sem  
+**rendelés**: megmutatja, hogy egy felhasználó melyik vetítésre vett jegyet  
 
 ## Szerepkörök
-**admin felhasználó**: olyan felhasználó, aki be tud lépni az alkalmazásba és változtathatja az összes táblákat, ill. lekérdezheti azok tartalmát
-
-**regisztrált felhasználó**: regisztráció utáni felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat, és az orders táblákban a saját sorait változtathatja meg
-
+**admin felhasználó**: olyan felhasználó, aki be tud lépni az alkalmazásba és változtathatja az összes táblákat, ill. lekérdezheti azok tartalmát  
+**regisztrált felhasználó**: regisztráció utáni felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat, és az orders táblákban a saját sorait változtathatja meg  
 **regisztrálatlan felhasználó**: minden, regisztráció nélküli felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat
