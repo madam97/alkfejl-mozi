@@ -1,6 +1,8 @@
 # Mozik
 ELTE - Alkalmazások fejlesztése tárgy beadandója.
+
 Authors: Bacsó Gergely, Mézes Ádám
+
 Since: 2018.09.23.
 
 ## Leírás
@@ -15,12 +17,17 @@ Az adatokat 4 táblában tároljuk:
 * A **orders** tábla egy rendelés kapcsolótábla, amiből kiolvasható, hogy melyik vetítésre kért jegyet egy user
 
 ## Fogalomjegyzék
-**admin felhasználó**: olyan felhasználó, aki be tud lépni az alkalmazásba és változtathatja az összes táblákat, ill. lekérdezheti azok tartalmát
-**nem admin felhasználó**: regisztráció utáni felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat, és az orders táblákban a saját sorait változtathatja meg
 **mozi**: az a hely, ahol filmeket vetítenek
+
 **film**: ezt vetítik a moziban
+
 **vetítés**: megmutatja, hogy egy moziban milyen filmet vetítenek 3d-ben vagy sem
+
 **rendelés**: megmutatja, hogy egy felhasználó melyik vetítésre vett jegyet
 
 ## Szerepkörök
-TO DO
+**admin felhasználó**: olyan felhasználó, aki be tud lépni az alkalmazásba és változtathatja az összes táblákat, ill. lekérdezheti azok tartalmát
+
+**regisztrált felhasználó**: regisztráció utáni felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat, és az orders táblákban a saját sorait változtathatja meg
+
+**regisztrálatlan felhasználó**: minden, regisztráció nélküli felhasználó, aki csak lekérdezheti a cinemas, movies és screening táblákat
