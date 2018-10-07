@@ -41,7 +41,7 @@ rooms_numb | int | mennyi vetítőterem található a moziban
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
-name | varchar	a terem neve
+name | varchar | a terem neve
 rows | int | sorok száma
 seats | int | egy sorban lévő székek száma
 
@@ -144,3 +144,24 @@ DELETE | /projections/{id} | megadott vetítést törli, és a hozzá tartozó r
 DELETE | /orders/{id} | megadott rendelés törlése
 DELETE | /users/{id} | megadott felhasználó törli, és a hozzá tartozó rendeléseket
 
+### Frontend terv képek
+
+A főoldalon megjelenik majd a legutolsó 4 feltöltött film.
+
+![Főoldal](/images/home.jpg)
+
+A mozik és a filmek oldalon listázódnak majd az adatok. A filmek oldalon linkek lesznek a jegyrendelés oldalra.
+
+![Egy lista](/images/list.jpg)
+
+A jegyrendelés oldalon ha belépünk, automatikusan kitölti a nevünket és az emailünket.
+
+![Jegyrendelés](/images/order.jpg)
+
+A belépés gombra kattintva felugrik a belépés popup.
+
+![Belépés](/images/login.jpg)
+
+Ha adminként lépünk be, akkor a menüsorban megjelenik egy Admin felület menügomb. Ez lenyitható az admin menüre. Az admin menüknek lesz egy lista nézete (itt lehet megnézni az adatokat, törölni őket) és lesz egy részletes nézete (új adat felvitele, régi módosítása).
+
+![Admin oldal példa és menü](/images/admin.jpg)
