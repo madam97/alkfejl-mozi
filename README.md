@@ -92,7 +92,7 @@ projection_id | int | a vetítés ID-je, amire szól a rendelés
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-POST | /users | regisztrál az oldalra a megadott felhasználói adatokkal
+POST | /users/register | regisztrál az oldalra a megadott felhasználói adatokkal
 
 #### ROLE_QUEST, ROLE_USER, ROLE_ADMIN
 
