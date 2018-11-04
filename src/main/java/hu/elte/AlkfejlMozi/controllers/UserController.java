@@ -89,6 +89,11 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
     
+    @PostMapping("login")
+    public ResponseEntity login(@RequestBody User user) {
+        return ResponseEntity.ok().build();
+    } 
+    
     @PutMapping("/{id}")
     public ResponseEntity<User> put(@PathVariable Integer id, @RequestBody User user) {
         Optional<User> oUser = userRepository.findById(id);
