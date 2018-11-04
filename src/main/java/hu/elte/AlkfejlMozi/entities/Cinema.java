@@ -32,10 +32,6 @@ public class Cinema implements Serializable {
     @NotNull
     private String address;
     
-    @Column
-    @NotNull
-    private Integer roomsNumb;
-    
     @OneToMany(mappedBy = "cinemarooms")
     private List<Room> rooms;
 }
