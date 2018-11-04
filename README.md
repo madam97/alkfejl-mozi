@@ -55,7 +55,7 @@ id | int | elsődleges kulcs
 title | varchar | film címe
 desc | text | rövid leírás a filmről
 rate | int | értékelés (1-től 10-ig egész szám)
-age_limit | int | korhatár
+agelimit | int | korhatár
 
 #### PROJECTIONS
 
@@ -66,7 +66,7 @@ projectionroom_id | int | a vetítést adó terem ID-je
 projectionmovie_id | int | a vetített film ID-je
 room | int | a terem sorszáma, amiben a vetítés lesz
 time | timestamp | vetítés ideje
-is_3d | bool | 3d-ben vetítik-e vagy sem
+is3d | bool | 3d-ben vetítik-e vagy sem
 price | int | a jegy ára
 
 #### USERS
