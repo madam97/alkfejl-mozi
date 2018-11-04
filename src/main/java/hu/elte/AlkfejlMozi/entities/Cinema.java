@@ -36,6 +36,6 @@ public class Cinema implements Serializable {
     @NotNull
     private Integer roomsNumb;
     
-    @OneToMany(mappedBy = "cinemaRooms")
+    @OneToMany(mappedBy = "cinemarooms")
     private List<Room> rooms;
 }

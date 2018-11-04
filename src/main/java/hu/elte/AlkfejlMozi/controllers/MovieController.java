@@ -51,7 +51,7 @@ public class MovieController {
     @PostMapping("")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Movie> post(@RequestBody Movie movie) {
-        Optional<Movie> oMovie = movieRepository.findById(movie.getId());
+        Optional<Movie> oMovie = movieRepository.findByTitle(movie.getTitle());
         if (oMovie.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
@@ -62,7 +62,7 @@ public class MovieController {
     @PutMapping("")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Movie> put(@RequestBody Movie movie) {
-        Optional<Movie> oMovie = movieRepository.findById(movie.getId());
+        Optional<Movie> oMovie = movieRepository.findByTitle(movie.getTitle());
         if (!oMovie.isPresent()) {
             return ResponseEntity.notFound().build();
         }

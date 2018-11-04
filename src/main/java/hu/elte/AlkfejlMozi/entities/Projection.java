@@ -10,9 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -37,15 +37,15 @@ public class Projection implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Column
-    @NotNull
-    private Integer cinemaRoomId;
-    
-    @Column
-    @NotNull
+    @JsonIgnore
     @JoinColumn
     @ManyToOne
-    private Integer movieId;
+    private Room projectionroom;
+    
+    @JsonIgnore
+    @JoinColumn
+    @ManyToOne
+    private Movie projectionmovie;
     
     @Column
     @NotNull
@@ -60,6 +60,7 @@ public class Projection implements Serializable {
     private Integer price;
     
     @JsonIgnore
+    @JoinTable
     @ManyToMany
     private List<User> users;
 }

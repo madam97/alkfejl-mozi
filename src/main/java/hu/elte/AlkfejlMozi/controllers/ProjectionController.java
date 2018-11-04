@@ -1,7 +1,8 @@
+
 package hu.elte.AlkfejlMozi.controllers;
 
-import hu.elte.AlkfejlMozi.entities.Room;
-import hu.elte.AlkfejlMozi.repositories.RoomRepository;
+import hu.elte.AlkfejlMozi.entities.Projection;
+import hu.elte.AlkfejlMozi.repositories.ProjectionRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,57 +17,58 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rooms")
-public class RoomController {
+@RequestMapping("/projections")
+public class ProjectionController {
     @Autowired
-    private RoomRepository roomRepository;
+    private ProjectionRepository projectionRepository;
     
     @GetMapping("")
-    public ResponseEntity<Iterable<Room>> getAll() {
-        return ResponseEntity.ok(roomRepository.findAll());
+    public ResponseEntity<Iterable<Projection>> getAll() {
+        return ResponseEntity.ok(projectionRepository.findAll());
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Room> get(@PathVariable Integer id) {
-        Optional<Room> oRoom = roomRepository.findById(id);
-        if (!oRoom.isPresent()) {
+    public ResponseEntity<Projection> get(@PathVariable Integer id) {
+        Optional<Projection> oProjection = projectionRepository.findById(id);
+        if (!oProjection.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
         
-        return ResponseEntity.ok(oRoom.get());
+        return ResponseEntity.ok(oProjection.get());
     }
     
     @DeleteMapping("/{id}")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity delete(@PathVariable Integer id) {
-        Optional<Room> oRoom = roomRepository.findById(id);
-        if (!oRoom.isPresent()) {
+        Optional<Projection> oProjection = projectionRepository.findById(id);
+        if (!oProjection.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
             
-        roomRepository.delete(oRoom.get());
+        projectionRepository.delete(oProjection.get());
         return ResponseEntity.ok().build();
     }
     
     @PostMapping("")
     @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity<Room> post(@RequestBody Room room) {
-        Optional<Room> oRoom = roomRepository.findByName(room.getName());
-        if (oRoom.isPresent()) {
+    public ResponseEntity<Projection> post(@RequestBody Projection projection) {
+        Optional<Projection> oProjection = projectionRepository.findById(projection.getId());
+        if (oProjection.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
-        room.setId(null);
-        return ResponseEntity.ok(roomRepository.save(room));
+        projection.setId(null);
+        return ResponseEntity.ok(projectionRepository.save(projection));
     }
     
     @PutMapping("")
     @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity<Room> put(@RequestBody Room room) {
-        Optional<Room> oRoom = roomRepository.findByName(room.getName());
-        if (!oRoom.isPresent()) {
+    public ResponseEntity<Projection> put(@RequestBody Projection projection) {
+        Optional<Projection> oProjection = projectionRepository.findById(projection.getId());
+        if (!oProjection.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         
-        return ResponseEntity.ok(roomRepository.save(room));
+        return ResponseEntity.ok(projectionRepository.save(projection));
     }
+    
 }
