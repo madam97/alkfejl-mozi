@@ -27,6 +27,8 @@ Az API mozikhoz, filmekhez és vetítésekhez tartozó adatokat fog kezelni. Az 
 
 ### SQL táblák
 
+![DBA ábra](/images/dba.jpg)
+
 #### CINEMAS
 
 Oszlopnév | Típus | Leírás
@@ -34,26 +36,16 @@ Oszlopnév | Típus | Leírás
 id | int | elsődleges kulcs
 name | varchar | mozi neve
 address | varchar | milyen címen található a mozi
-rooms_numb | int | mennyi vetítőterem található a moziban
 
 #### ROOMS:
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
+cinemarooms_id | int | egy mozi kulcsa
 name | varchar | a terem neve
 rows | int | sorok száma
 seats | int | egy sorban lévő székek száma
-
-#### CINEMA_ROOMS:
-
-Oszlopnév | Típus | Leírás
---------- | ----- | ------
-cinema_id | int | a teremhez tartozó mozi
-room_id | int | a terem id-je
-
-összetett kulcs(cinema_id, room_id)
-
 
 #### MOVIES
 
@@ -63,18 +55,18 @@ id | int | elsődleges kulcs
 title | varchar | film címe
 desc | text | rövid leírás a filmről
 rate | int | értékelés (1-től 10-ig egész szám)
-age_limit | int | korhatár
+agelimit | int | korhatár
 
 #### PROJECTIONS
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
-cinema_id | int | a vetítést adó mozi ID-je
-movie_id | int | a vetített film ID-je
+projectionroom_id | int | a vetítést adó terem ID-je
+projectionmovie_id | int | a vetített film ID-je
 room | int | a terem sorszáma, amiben a vetítés lesz
 time | timestamp | vetítés ideje
-is_3d | bool | 3d-ben vetítik-e vagy sem
+is3d | bool | 3d-ben vetítik-e vagy sem
 price | int | a jegy ára
 
 #### USERS
@@ -87,11 +79,10 @@ name | varchar | felhasználó neve
 pass | varchar | jelszó
 age | int | felhasználó kora
 
-#### ORDERS
+#### PROJECTION_USERS
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
-id | int | elsődleges kulcs
 user_id | int | a rendelést leadó felhasználó ID-je
 projection_id | int | a vetítés ID-je, amire szól a rendelés
 
