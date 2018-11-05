@@ -109,19 +109,19 @@ GET | /projections/{id} | az adott ID-vel rendelkező vetítés
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /my/orders | a belépett felhasználó összes rendelése
-GET | /my/orders/{id} | a belépett felhasználó adott ID-vel rendelkező rendelése
-POST | /my/orders | a belépett felhasználónak létrehoz egy új rendelést | 
-DELETE | /my/orders/{id} | a belépett felhasználó adott ID-vel rendelkező rendelését törli
+GET | /my/projections | a belépett felhasználó összes rendelése
+GET | /my/projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelése
+POST | /my/projections | a belépett felhasználónak létrehoz egy új rendelést | 
+DELETE | /my/projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelését törli
 
 #### ROLE_ADMIN
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /orders | összes rendelés
-GET | /orders/{id} | az adott ID-vel rendelkező rendelés
 GET | /users | összes felhasználó
 GET | /users/{id} | az adott ID-vel rendelkező felhasználó
+GET | /users/{id}/projections | az adott ID-vel rendelkező felhasználó vetítése, melyekre jegyet vett
+GET | /projections/{id}/users | az adott ID-vel rendelkező vetítésre jegyet vett felhasználók
 POST | /cinemas | új mozi
 POST | /movies | új film
 POST | /projections | új vetítés
@@ -132,7 +132,6 @@ PATCH | /users/{id}/to-admin   | a megadott felhasználót adminná teszi
 DELETE | /cinemas/{id} | megadott mozit törli, és a hozzá tartozó vetítéseket és rendeléseket
 DELETE | /movies/{id} | megadott filmet törli,, és a hozzá tartozó vetítéseket és rendeléseket
 DELETE | /projections/{id} | megadott vetítést törli, és a hozzá tartozó rendeléseket
-DELETE | /orders/{id} | megadott rendelés törlése
 DELETE | /users/{id} | megadott felhasználó törli, és a hozzá tartozó rendeléseket
 
 ### Frontend terv képek
