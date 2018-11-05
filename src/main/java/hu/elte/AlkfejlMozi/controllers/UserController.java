@@ -1,6 +1,8 @@
 package hu.elte.AlkfejlMozi.controllers;
 
+import hu.elte.AlkfejlMozi.entities.Projection;
 import hu.elte.AlkfejlMozi.entities.User;
+import hu.elte.AlkfejlMozi.repositories.ProjectionRepository;
 import hu.elte.AlkfejlMozi.repositories.UserRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,17 @@ public class UserController {
         }
         
         return ResponseEntity.ok(oUser.get());
+    }
+    
+    @GetMapping("/{id}/projections")
+    @Secured({ "ROLE_ADMIN" })
+    public ResponseEntity<Iterable<Projection>> getProjections(@PathVariable Integer id) {
+        Optional<User> oUser = userRepository.findById(id);
+        if (!oUser.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        return ResponseEntity.ok(oUser.get().getProjections());
     }
     
     @DeleteMapping("/{id}")
