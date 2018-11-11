@@ -27,49 +27,46 @@ Az API mozikhoz, filmekhez és vetítésekhez tartozó adatokat fog kezelni. Az 
 
 ### SQL táblák
 
-![DBA ábra](/images/dba.jpg)
+![DBA ábra](/images/dba2.jpg)
 
-#### CINEMAS
-
-Oszlopnév | Típus | Leírás
---------- | ----- | ------
-id | int | elsődleges kulcs
-name | varchar | mozi neve
-address | varchar | milyen címen található a mozi
-
-#### ROOMS:
+#### ROOM:
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
-cinemarooms_id | int | egy mozi kulcsa
 name | varchar | a terem neve
 rows | int | sorok száma
 seats | int | egy sorban lévő székek száma
 
-#### MOVIES
+#### MOVIE
+
+Oszlopnév | Típus | Leírás
+--------- | ----- | ------
+title | varchar | elsődleges kulcs; film címe
+description | text | rövid leírás a filmről
+rate | int | értékelés (1-től 10-ig egész szám)
+agelimit | int | korhatár
+length | int | film hossza percben
+
+#### ACTOR
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
-title | varchar | film címe
-desc | text | rövid leírás a filmről
-rate | int | értékelés (1-től 10-ig egész szám)
-agelimit | int | korhatár
+name | varchar | a színész neve
 
-#### PROJECTIONS
+#### PROJECTION
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
 id | int | elsődleges kulcs
 projectionroom_id | int | a vetítést adó terem ID-je
 projectionmovie_id | int | a vetített film ID-je
-room | int | a terem sorszáma, amiben a vetítés lesz
 time | timestamp | vetítés ideje
 is3d | bool | 3d-ben vetítik-e vagy sem
 price | int | a jegy ára
 
-#### USERS
+#### USER
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
@@ -79,12 +76,15 @@ name | varchar | felhasználó neve
 pass | varchar | jelszó
 age | int | felhasználó kora
 
-#### PROJECTION_USERS
+#### TICKET
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
+id | int | elsődleges kulcs
 user_id | int | a rendelést leadó felhasználó ID-je
 projection_id | int | a vetítés ID-je, amire szól a rendelés
+row | int | sorszám
+seat | int | szék sorszáma
 
 ### API parancsok
 
