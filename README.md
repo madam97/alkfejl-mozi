@@ -42,7 +42,8 @@ seats | int | egy sorban lévő székek száma
 
 Oszlopnév | Típus | Leírás
 --------- | ----- | ------
-title | varchar | elsődleges kulcs; film címe
+id | int | elsődleges kulcs
+title | varchar | film címe
 description | text | rövid leírás a filmről
 rate | int | értékelés (1-től 10-ig egész szám)
 agelimit | int | korhatár
@@ -73,7 +74,8 @@ Oszlopnév | Típus | Leírás
 id | int | elsődleges kulcs
 role | enum | ROLE_USER vagy ROLE_ADMIN
 name | varchar | felhasználó neve
-pass | varchar | jelszó
+name | varchar | felhasználó emailje
+pass | varchar | felhasználó jelszava
 age | int | felhasználó kora
 
 #### TICKET
