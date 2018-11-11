@@ -1,0 +1,46 @@
+https://app.quickdatabasediagrams.com/
+
+ROOM as r
+-
+ID PK int
+NAME string
+ROWS int
+SEATS int
+
+PROJECTION as p
+-
+ID PK int
+PROJECTIONROOM_ID int FK >- r.ID
+PROJECTIONMOVIE_ID int FK >- m.TITLE
+PRICE int
+IS3D boolean
+TIME timestamp
+
+MOVIE as m
+-
+TITLE PK string
+AGELIMIT int
+DESCRIPTION string
+RATE float
+LENGTH int
+
+ACTOR as a
+-
+ID PK int
+NAME string
+
+USER as u
+-
+ID PK int
+NAME string
+PASS string
+AGE string
+ROLE string
+
+TICKET as t
+-
+ID PK int
+USER_ID int FK >- u.ID
+PROJECTION_ID int FK >- p.ID
+ROW int
+SEAT int
