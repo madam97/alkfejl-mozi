@@ -27,7 +27,7 @@ Az API mozikhoz, filmekhez és vetítésekhez tartozó adatokat fog kezelni. Az 
 
 ### SQL táblák
 
-![DBA ábra](/images/dba2.jpg)
+![DBA ábra](/images/dba3.jpg)
 
 #### ROOM:
 
