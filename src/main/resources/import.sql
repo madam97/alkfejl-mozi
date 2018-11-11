@@ -1,42 +1,62 @@
-INSERT INTO `USER` (`NAME`, `PASS`, `AGE`, `ROLE`) VALUES ('admin', '$2a$04$aRYAGeJbvX20Cb26UPoPdeFiiuqIbhSwOObz7UU7.nRu3rbsCNVUu', 50, 'ROLE_ADMIN');
-INSERT INTO `USER` (`NAME`, `PASS`, `AGE`, `ROLE`) VALUES ('user', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 30, 'ROLE_USER');
-INSERT INTO `USER` (`NAME`, `PASS`, `AGE`, `ROLE`) VALUES ('user2', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 12, 'ROLE_USER');
-INSERT INTO `USER` (`NAME`, `PASS`, `AGE`, `ROLE`) VALUES ('user3', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 18, 'ROLE_USER');
+-- Színészek
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Jack Nicholson');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Morgan Freeman');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Tommy Lee Jones');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Will Smith');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Robert De Niro');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Tom Hanks');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Halle Berry');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Hugo Weaving');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Keanu Reeves');
+INSERT INTO `ACTOR` (`NAME`) VALUES ('Robin Williams');
 
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('The Shawshank Redemption(1994)', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.', 9.2, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('Matrix (1999)', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', 8.7, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('Shutter Island (2010)', 'In 1954, a U.S. Marshal investigates the disappearance of a murderer, who escaped from a hospital for the criminally insane.', 8.1, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('12 Years a Slave (2013)', 'In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.', 8.1, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('Guardians of the Galaxy (2014)', 'A group of intergalactic criminals are forced to work together to stop a fanatical warrior from taking control of the universe.', 8.1, 12);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('A Wednesday (2008)', 'A retiring police officer reminisces about the most astounding day of his career. About a case that was never filed but continues to haunt him in his memories - the case of a man and a Wednesday.', 8.2, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('Drishyam (2015)', 'Desperate measures are taken by a man who tries to save his family from the dark side of the law, after they commit an unexpected crime.', 8.3, 16);
-INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`) VALUES ('The Silence of the Lambs (1991)', 'A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.', 8.6, 18);
+-- Filmek
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('The Bucket List (2007)', 'Two terminally ill men escape from a cancer ward and head off on a road trip with a wish list of to-dos before they die.', 7.4, 12, 97);
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('Men in Black (1997)', 'A police officer joins a secret organization that polices and monitors extraterrestrial interactions on Earth.', 7.3, 12, 98);
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('Last Vegas (2013)', 'Four friends take a break from their day-to-day lives to throw a bachelor party in Las Vegas for their last remaining single pal.', 6.6, 16, 105);
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('Cloud Atlas (2012)', 'An exploration of how the actions of individual lives impact one another in the past, present and future, as one soul is shaped from a killer into a hero, and an act of kindness ripples across centuries to inspire a revolution.', 7.5, 12, 172);
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('The Matrix (1999)', 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.', 8.7, 12, 136);
+INSERT INTO `MOVIE` (`TITLE`, `DESCRIPTION`, `RATE`, `AGELIMIT`, `LENGTH`) VALUES ('Dead Poets Society (1989)', 'English teacher John Keating inspires his students to look at poetry with a different perspective of authentic knowledge and feelings.', 8.1, 16, 128);
 
-INSERT INTO `CINEMA` (`NAME`, `ADDRESS`) VALUES ('Allee - Budapest', '1117 Budapest Október huszonharmadika u. 8-10.');
-INSERT INTO `CINEMA` (`NAME`, `ADDRESS`) VALUES ('Apollo Mozi - Debrecen', '4025 Debrecen, Miklós u. 1.');
-INSERT INTO `CINEMA` (`NAME`, `ADDRESS`) VALUES ('Cinema City - Győr', '9023 Győr, Plaza, Vasvári Pál u. 1.');
+-- Filmek és színészek összekapcsolása
+-- Bucket list
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (1, 1);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (2, 1);
+-- MIB
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (3, 2);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (4, 2);
+-- Last Vegas
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (2, 3);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (5, 3);
+-- Could atlas
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (6, 4);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (7, 4);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (8, 4);
+-- Matrix
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (8, 5);
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (9, 5);
+-- Dead Poets Society
+INSERT INTO `ACTOR_MOVIES` (`ACTORS_ID`, `MOVIES_ID`) VALUES (10, 6);
 
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Nagy terem', 18, 20, 1);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Kis terem', 7, 10, 1);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Alfa terem', 30, 20, 2);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Kör terem', 15, 20, 2);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Közepes terem', 10, 15, 1);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Emelet', 15, 20, 3);
-INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`, `CINEMAROOMS_ID`) VALUES ('Földszinti terem', 20, 20, 3);
+-- Termek
+INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`) VALUES ('Big Room', 18, 20);
+INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`) VALUES ('Small Room', 7, 10);
+INSERT INTO `ROOM` (`NAME`, `ROWS`, `SEATS`) VALUES ('Round Room', 30, 20);
 
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-03T10:00:00', FALSE, 2000, 1, 1);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-04T12:00:00', FALSE, 2000, 2, 1);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-05T09:00:00', FALSE, 2000, 1, 1);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-03T13:00:00', FALSE, 3000, 3, 2);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-03T11:30:00', FALSE, 2500, 4, 3);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-10T10:30:00', FALSE, 2500, 6, 3);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-03T10:30:00', FALSE, 2000, 6, 4);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-04T08:00:00', TRUE, 4000, 5, 5);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-10T20:00:00', TRUE, 4000, 3, 5);
-INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `PROJECTIONROOM_ID`, `PROJECTIONMOVIE_ID`) VALUES ('2018-12-12T13:00:00', TRUE, 3500, 2, 6);
+-- Vetítések
+INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `MOVIE_ID`, `ROOM_ID`) VALUES ('2018-12-23T10:00:00', FALSE, 2000, 1, 1);
+INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `MOVIE_ID`, `ROOM_ID`) VALUES ('2018-12-23T12:00:00', TRUE, 3000, 4, 2);
+INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `MOVIE_ID`, `ROOM_ID`) VALUES ('2018-12-23T15:00:00', TRUE, 3000, 5, 2);
+INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `MOVIE_ID`, `ROOM_ID`) VALUES ('2018-12-23T12:00:00', FALSE, 1500, 2, 2);
+INSERT INTO `PROJECTION` (`TIME`, `IS3D`, `PRICE`, `MOVIE_ID`, `ROOM_ID`) VALUES ('2018-12-24T14:00:00', FALSE, 1000, 6, 3);
 
-INSERT INTO `PROJECTION_USERS` (`PROJECTIONS_ID`, `USERS_ID`) VALUES (1,2);
-INSERT INTO `PROJECTION_USERS` (`PROJECTIONS_ID`, `USERS_ID`) VALUES (2,2);
-INSERT INTO `PROJECTION_USERS` (`PROJECTIONS_ID`, `USERS_ID`) VALUES (3,3);
-INSERT INTO `PROJECTION_USERS` (`PROJECTIONS_ID`, `USERS_ID`) VALUES (6,4);
-INSERT INTO `PROJECTION_USERS` (`PROJECTIONS_ID`, `USERS_ID`) VALUES (8,3);
+-- Felhasználók
+INSERT INTO `USER` (`NAME`, `EMAIL`, `PASS`, `AGE`, `ROLE`) VALUES ('admin', 'admin@gmail.com', '$2a$04$aRYAGeJbvX20Cb26UPoPdeFiiuqIbhSwOObz7UU7.nRu3rbsCNVUu', 50, 'ROLE_ADMIN');
+INSERT INTO `USER` (`NAME`, `EMAIL`, `PASS`, `AGE`, `ROLE`) VALUES ('user', 'user@gmail.com', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 30, 'ROLE_USER');
+INSERT INTO `USER` (`NAME`, `EMAIL`, `PASS`, `AGE`, `ROLE`) VALUES ('user2', 'user2@gmail.com', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 12, 'ROLE_USER');
+INSERT INTO `USER` (`NAME`, `EMAIL`, `PASS`, `AGE`, `ROLE`) VALUES ('user3', 'user3@gmail.com', '$2a$04$kC3QuGXSejTid5IHELpRru9yoPTbUNH1StCt.BHAg/XFn/lyRmw2C', 18, 'ROLE_USER');
+
+-- Jegyek
+INSERT INTO `TICKET` (`ROW`, `SEAT`, `PROJECTION_ID`, `USER_ID`) VALUES (9, 10, 1, 2);
+INSERT INTO `TICKET` (`ROW`, `SEAT`, `PROJECTION_ID`, `USER_ID`) VALUES (9, 11, 1, 2);
+INSERT INTO `TICKET` (`ROW`, `SEAT`, `PROJECTION_ID`, `USER_ID`) VALUES (9, 12, 1, 2);

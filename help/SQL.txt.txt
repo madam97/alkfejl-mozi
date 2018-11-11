@@ -10,15 +10,16 @@ SEATS int
 PROJECTION as p
 -
 ID PK int
-PROJECTIONROOM_ID int FK >- r.ID
-PROJECTIONMOVIE_ID int FK >- m.TITLE
+ROOM_ID int FK >- r.ID
+MOVIE_ID int FK >- m.ID
 PRICE int
 IS3D boolean
 TIME timestamp
 
 MOVIE as m
 -
-TITLE PK string
+ID PK int
+TITLE string
 AGELIMIT int
 DESCRIPTION string
 RATE float
@@ -33,6 +34,7 @@ USER as u
 -
 ID PK int
 NAME string
+EMAIL string
 PASS string
 AGE string
 ROLE string
