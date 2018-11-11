@@ -2,12 +2,9 @@ package hu.elte.AlkfejlMozi.repositories;
 
 import hu.elte.AlkfejlMozi.entities.Projection;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- * Repository a Projection entitásnak
- * 
- * @author Mézes Ádám
- */
+@Repository
 public interface ProjectionRepository extends CrudRepository<Projection, Integer> {
 
 }

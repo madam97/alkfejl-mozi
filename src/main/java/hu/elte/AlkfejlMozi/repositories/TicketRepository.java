@@ -1,14 +1,10 @@
 package hu.elte.AlkfejlMozi.repositories;
 
-import hu.elte.AlkfejlMozi.entities.User;
-import java.util.Optional;
+import hu.elte.AlkfejlMozi.entities.Ticket;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- * Repository a User entitásnak
- * 
- * @author Mézes Ádám
- */
-public interface UserRepository extends CrudRepository<User, Integer> {
-    public Optional<User> findByName(String name);
+@Repository
+public interface TicketRepository extends CrudRepository<Ticket, Integer> {
+
 }

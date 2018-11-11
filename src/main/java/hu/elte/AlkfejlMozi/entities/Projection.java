@@ -11,8 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -20,12 +20,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-/**
- * Entitás osztály a vetítésekhez
- * 
- * @author Mézes Ádám
- */
 
 @Entity
 @Data
@@ -37,15 +31,17 @@ public class Projection implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @JsonIgnore
     @JoinColumn
     @ManyToOne
-    private Room projectionroom;
+    private Room room;
+    
+    @JoinColumn
+    @ManyToOne
+    private Movie movie;
     
     @JsonIgnore
-    @JoinColumn
-    @ManyToOne
-    private Movie projectionmovie;
+    @OneToMany(mappedBy = "projection")
+    private List<Ticket> tickets;
     
     @Column
     @NotNull
@@ -58,9 +54,4 @@ public class Projection implements Serializable {
     @Column
     @NotNull
     private Integer price;
-    
-    @JsonIgnore
-    @JoinTable
-    @ManyToMany
-    private List<User> users;
 }

@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.AlkfejlMozi.controllers;
 
-import hu.elte.AlkfejlMozi.entities.Cinema;
-import hu.elte.AlkfejlMozi.repositories.CinemaRepository;
+import hu.elte.AlkfejlMozi.entities.Actor;
+import hu.elte.AlkfejlMozi.repositories.ActorRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,57 +16,57 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/cinemas")
-public class CinemaController {
+@RequestMapping("/actors")
+public class ActorController {
     @Autowired
-    private CinemaRepository cinemaRepository;
+    private ActorRepository actorRepository;
     
     @GetMapping("")
-    public ResponseEntity<Iterable<Cinema>> getAll() {
-        return ResponseEntity.ok(cinemaRepository.findAll());
+    public ResponseEntity<Iterable<Actor>> getAll() {
+        return ResponseEntity.ok(actorRepository.findAll());
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Cinema> get(@PathVariable Integer id) {
-        Optional<Cinema> oCinema = cinemaRepository.findById(id);
-        if (!oCinema.isPresent()) {
+    public ResponseEntity<Actor> get(@PathVariable Integer id) {
+        Optional<Actor> oActor = actorRepository.findById(id);
+        if (!oActor.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
         
-        return ResponseEntity.ok(oCinema.get());
+        return ResponseEntity.ok(oActor.get());
     }
     
     @DeleteMapping("/{id}")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity delete(@PathVariable Integer id) {
-        Optional<Cinema> oCinema = cinemaRepository.findById(id);
-        if (!oCinema.isPresent()) {
+        Optional<Actor> oActor = actorRepository.findById(id);
+        if (!oActor.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
             
-        cinemaRepository.delete(oCinema.get());
+        actorRepository.delete(oActor.get());
         return ResponseEntity.ok().build();
     }
     
     @PostMapping("")
     @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity<Cinema> post(@RequestBody Cinema cinema) {
-        Optional<Cinema> oCinema = cinemaRepository.findById(cinema.getId());
-        if (oCinema.isPresent()) {
+    public ResponseEntity<Actor> post(@RequestBody Actor actor) {
+        Optional<Actor> oActor = actorRepository.findById(actor.getId());
+        if (oActor.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
-        cinema.setId(null);
-        return ResponseEntity.ok(cinemaRepository.save(cinema));
+        actor.setId(null);
+        return ResponseEntity.ok(actorRepository.save(actor));
     }
     
     @PutMapping("")
     @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity<Cinema> put(@RequestBody Cinema cinema) {
-        Optional<Cinema> oCinema = cinemaRepository.findById(cinema.getId());
-        if (!oCinema.isPresent()) {
+    public ResponseEntity<Actor> put(@RequestBody Actor actor) {
+        Optional<Actor> oActor = actorRepository.findById(actor.getId());
+        if (!oActor.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         
-        return ResponseEntity.ok(cinemaRepository.save(cinema));
+        return ResponseEntity.ok(actorRepository.save(actor));
     }
 }

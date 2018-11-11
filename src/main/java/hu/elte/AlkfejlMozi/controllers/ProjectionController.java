@@ -38,7 +38,7 @@ public class ProjectionController {
         return ResponseEntity.ok(oProjection.get());
     }
     
-    @GetMapping("/{id}/users")
+    /*@GetMapping("/{id}/tickets")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Iterable<User>> getUsers(@PathVariable Integer id) {
         Optional<Projection> oProjection = projectionRepository.findById(id);
@@ -47,7 +47,7 @@ public class ProjectionController {
         }
         
         return ResponseEntity.ok(oProjection.get().getUsers());
-    }
+    }*/
     
     @DeleteMapping("/{id}")
     @Secured({ "ROLE_ADMIN" })

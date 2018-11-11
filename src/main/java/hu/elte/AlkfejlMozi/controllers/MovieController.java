@@ -55,7 +55,7 @@ public class MovieController {
         if (oMovie.isPresent()) {
             return ResponseEntity.badRequest().build();
         }
-        movie.setId(null);
+        //movie.setId(null);
         return ResponseEntity.ok(movieRepository.save(movie));
     }
     

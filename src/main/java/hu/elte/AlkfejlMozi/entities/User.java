@@ -10,19 +10,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-/**
- * Entitás osztály a felhasználók kezeléséhez
- * 
- * @author Mézes Ádám
- */
 
 @Entity
 @Data
@@ -33,6 +27,10 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> tickets;
     
     @Column
     @Enumerated(EnumType.STRING)
@@ -46,13 +44,13 @@ public class User implements Serializable {
     @NotNull
     private String pass;
     
+    @Column(unique=true)
+    @NotNull
+    private String email;
+    
     @Column
     @NotNull
     private Integer age;
-    
-    @JsonIgnore
-    @ManyToMany(mappedBy = "users")
-    private List<Projection> projections;
     
     public enum Role {
         ROLE_QUEST, ROLE_USER, ROLE_ADMIN

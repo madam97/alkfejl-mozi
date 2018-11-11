@@ -1,6 +1,5 @@
 package hu.elte.AlkfejlMozi.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -9,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,6 +25,9 @@ public class Room implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+    @OneToMany(mappedBy = "room")
+    private List<Projection> projections;
+    
     @Column
     @NotNull
     private String name;
@@ -37,16 +38,5 @@ public class Room implements Serializable {
     
     @Column
     @NotNull
-    private Integer seats;
-    
-    @JsonIgnore
-    @JoinColumn
-    @ManyToOne
-    private Cinema cinemarooms;
-    
-    @Column
-    @NotNull
-    @OneToMany(mappedBy = "projectionroom")
-    private List<Projection> projections;
-    
+    private Integer seats;    
 }
