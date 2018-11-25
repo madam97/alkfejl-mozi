@@ -1,4 +1,8 @@
+mat-toolbar {
+  background-color: #972828;
+  color: #fff;
+}
 
 mat-toolbar span {
     padding-right: 20px;
-  }
+}
