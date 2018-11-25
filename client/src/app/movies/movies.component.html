@@ -1,3 +1,24 @@
-<p>
-  movies works!
-</p>
+<h2>Mozinkban vetített filmek</h2>
+
+<mat-grid-list cols="3" rowHeight="270">
+  <mat-grid-tile *ngFor="let movie of _movies">
+    <mat-card class="movie-list-element">
+      <mat-card-title>
+        {{ movie.title }}
+        <span class="age-limit age-limit-{{ movie.agelimit }}">{{ movie.agelimit }}</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <p>{{ movie.description }}</p>
+        <ul class="movie-data">
+          <li>Hossz: {{ movie.length }} perc</li>
+          <li>Értékelés: {{ movie.rate }} / 10</li>
+        </ul>
+      </mat-card-subtitle>
+      <mat-card-actions align="right">
+        <a mat-flat-button color="primary" href="movies/{{ movie.id }}">
+          Tovább &#187;
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

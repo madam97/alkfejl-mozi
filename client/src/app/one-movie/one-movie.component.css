@@ -1,0 +1,17 @@
+h2 {
+    overflow: auto;
+    padding: 10px;
+    margin-bottom: 0px;
+    background-color: #000;
+    color: #fff;
+}
+
+.movie-desc {
+    overflow: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #bbb;
+}
+.movie-desc p:first-child {
+    font-size: 18px;
+}

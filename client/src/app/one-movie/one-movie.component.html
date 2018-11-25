@@ -1,0 +1,47 @@
+<h2>
+  {{ _movie.title }}
+  <span class="age-limit age-limit-{{ _movie.agelimit }}">{{ _movie.agelimit }}</span>
+</h2>
+
+<div class="movie-desc">
+    <p>{{ _movie.description}}</p>
+    
+    <ul class="movie-data">
+      <li>Hossz: {{ _movie.length }} perc</li>
+      <li>Értékelés: {{ _movie.rate }} / 10</li>
+    </ul>
+
+    <hr/>
+
+    <h4>Szereplők</h4>
+    <ul class="movie-data">
+      <li *ngFor="let actor of _movie.actors">{{ actor.name }}</li>
+    </ul>
+</div>
+
+<h3>Vetítések</h3>
+
+<mat-grid-list cols="3" rowHeight="150">
+    <mat-grid-tile *ngFor="let projection of _movie.projections">
+      <mat-card>
+        <mat-card-title>
+          {{ projection.startingTime.toLocaleString() }}
+          <span class="age-limit age-limit-{{ _movie.agelimit }}">{{ _movie.agelimit }}</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <ul class="movie-data">
+            <strong>
+              <li>{{ projection.room.name }} (max {{ projection.room.seats * projection.room.rows }} fő)</li>
+            </strong>
+            <li>Jegyár: {{ projection.price }}</li>
+            <li>3d vetítés: {{ projection.is3d ? "igen" : "nem" }}</li>
+          </ul>
+        </mat-card-subtitle>
+        <mat-card-actions align="center">
+            <button mat-flat-button color="primary" routerLink="new-reservation/{{ projection.id }}">
+              Jegy vásárlás
+            </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
