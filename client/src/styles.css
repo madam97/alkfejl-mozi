@@ -2,3 +2,70 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+hr {
+    width: 100px;
+    border: 1px solid #972828;
+    margin: 30px auto;
+}
+
+.mat-flat-button.mat-primary {
+    background: #972828;
+}
+
+.age-limit {
+    display: inline-block;
+    float: right;
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 3px solid green;
+    padding: 5px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.age-limit.age-limit-12 {
+    border-color: yellow;
+}
+.age-limit.age-limit-16 {
+    border-color: orange;
+}
+.age-limit.age-limit-18 {
+    border-color: red;
+}
+
+.movie-data {
+    color: #555;
+    padding: 0;
+    margin: 0;
+}
+.movie-data li {
+    list-style-type: none;
+}
+
+.mat-card.movie-list-element {
+    box-shadow: none;
+}
+.movie-list-element > mat-card-subtitle,
+.movie-list-element > mat-card-actions {
+    margin: 0;
+    background-color: #eee;
+    padding: 5px !important;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+.movie-list-element:hover > mat-card-subtitle,
+.movie-list-element:hover > mat-card-actions {
+    background-color: #ccc;
+}
+.movie-list-element mat-card-title {
+    padding: 10px;
+    color: #fff;
+    background-color: #000;
+}
