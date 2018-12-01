@@ -10,6 +10,8 @@ import { ProjectionsComponent } from './projections/projections.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HomeComponent } from './home/home.component';
 import { OneMovieComponent } from './one-movie/one-movie.component';
+import { BuyTicketComponent } from './buy-ticket/buy-ticket.component';
+import { BuyTicketFormComponent } from './buy-ticket-form/buy-ticket-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { OneMovieComponent } from './one-movie/one-movie.component';
     ProjectionsComponent,
     MoviesComponent,
     HomeComponent,
-    OneMovieComponent
+    OneMovieComponent,
+    BuyTicketComponent,
+    BuyTicketFormComponent
   ],
   imports: [
     MatToolbarModule,

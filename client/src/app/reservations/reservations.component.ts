@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from '../classes/ticket';
+import { TicketService } from '../services/ticket.service';
 
 @Component({
   selector: 'app-reservations',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationsComponent implements OnInit {
 
-  constructor() { }
+  private _reservations: Ticket[];
+  private displayedColumns = ['title', 'date', 'seat', 'row'];
+
+  constructor(private _reservationService: TicketService) { }
 
   ngOnInit() {
+    //this._reservations = this._reservationService.getReservations();
   }
 
 }

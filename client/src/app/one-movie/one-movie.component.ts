@@ -17,8 +17,8 @@ export class OneMovieComponent implements OnInit {
     private _moviesService: MovieService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     const id: number = parseInt(this.route.snapshot.paramMap.get('id'));
-    this._movie = this._moviesService.getMovie(id);
+    this._movie = await this._moviesService.getMovie(id);
   }
 }

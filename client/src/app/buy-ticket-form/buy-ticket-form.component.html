@@ -1,0 +1,7 @@
+<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+  <p *ngFor="let row of _room">
+    <mat-checkbox *ngFor="let seat of row" formControlName="{{ seat }}"></mat-checkbox>
+  </p>
+
+  <button mat-flat-button type="submit" color="primary">Foglalás</button>
+</form>

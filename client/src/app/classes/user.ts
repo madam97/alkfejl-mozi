@@ -1,3 +1,5 @@
+import { Ticket } from "./ticket";
+
 export class User {
     public id: number;
     public name: string;
@@ -5,4 +7,6 @@ export class User {
     public pass: string;
     public age: number;
     public role: string;
+
+    public tickets: Ticket[];
 }
