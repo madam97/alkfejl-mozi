@@ -16,11 +16,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-<<<<<<< HEAD
     this._movies = await this._moviesService.getMovies();
-=======
-    this._movies = await this._moviesService.getLastMovies(6);
->>>>>>> 4f15cb92b242c7efa56e343d06ddc8a3f5fb46fd
   }
 
 }
