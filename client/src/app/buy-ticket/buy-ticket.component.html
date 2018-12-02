@@ -2,6 +2,6 @@
   Foglalás: {{ _projection?.movie.title }}{{ _projection?.time }}.
 </h2>
 
-<app-buy-ticket-form [ticket]="_ticket"
+<app-buy-ticket-form [projection]="_projection"
                       (save)="onSave($event)">
 </app-buy-ticket-form>

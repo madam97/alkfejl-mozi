@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatGridListModule, MatListModule, MatTableModule, MatSelectModule, MatFormFieldModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatGridListModule, MatListModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatCheckboxModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { OneMovieComponent } from './one-movie/one-movie.component';
 import { BuyTicketComponent } from './buy-ticket/buy-ticket.component';
 import { BuyTicketFormComponent } from './buy-ticket-form/buy-ticket-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,14 @@ import { BuyTicketFormComponent } from './buy-ticket-form/buy-ticket-form.compon
     MatListModule,
     MatTableModule,
     MatSelectModule,
+    MatCheckboxModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

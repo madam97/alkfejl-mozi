@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Ticket } from '../classes/ticket';
 import { Projection } from '../classes/projection';
-import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-buy-ticket-form',
@@ -44,6 +44,7 @@ export class BuyTicketFormComponent implements OnInit {
     }
 
     this.fb.group(fbGroup);
+    console.log(fbGroup);
   }
 
   ngOnInit() {

@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
     private _moviesService: MovieService
   ) { }
 
-  ngOnInit() {
-    this._movies = this._moviesService.getLastMovies(6);
+  async ngOnInit() {
+    this._movies = await this._moviesService.getMovies();
   }
 
 }
