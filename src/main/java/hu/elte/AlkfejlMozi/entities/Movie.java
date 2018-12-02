@@ -1,5 +1,6 @@
 package hu.elte.AlkfejlMozi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -31,6 +32,7 @@ public class Movie implements Serializable {
     @NotNull
     private String title;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "movie")
     private List<Projection> projections;
     

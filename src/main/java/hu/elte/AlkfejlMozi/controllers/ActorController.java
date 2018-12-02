@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/actors")
+@RequestMapping("/api/actors")
 public class ActorController {
     @Autowired
     private ActorRepository actorRepository;

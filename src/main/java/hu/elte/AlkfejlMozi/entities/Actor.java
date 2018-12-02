@@ -1,5 +1,6 @@
 package hu.elte.AlkfejlMozi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -25,6 +26,7 @@ public class Actor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+    @JsonIgnore
     @JoinTable
     @ManyToMany
     private List<Movie> movies;

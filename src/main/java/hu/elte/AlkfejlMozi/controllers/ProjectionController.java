@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/projections")
+@RequestMapping("/api/projections")
 public class ProjectionController {
     @Autowired
     private ProjectionRepository projectionRepository;
