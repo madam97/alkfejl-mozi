@@ -20,4 +20,8 @@ export class MovieService {
     return this.httpService.get<Movie>(this.route + "/" + id);
   }
 
+  public getLastMovies(size: number): Promise<Movie[]>{
+    return this.httpService.get<Movie[]>(this.route);
+  }
+
 }

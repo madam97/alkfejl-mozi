@@ -43,7 +43,7 @@ export class BuyTicketFormComponent implements OnInit {
       }
     }
 
-    this.fb.group(fbGroup);
+    this.ticketForm = this.fb.group(fbGroup);
   }
 
   ngOnInit() {
