@@ -30,11 +30,11 @@ public class Projection implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @JoinColumn
     @ManyToOne
     private Room room;
-    
+   
     @JoinColumn
     @ManyToOne
     private Movie movie;
