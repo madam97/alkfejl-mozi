@@ -22,10 +22,10 @@
 <h3>Vetítések</h3>
 
 <mat-grid-list cols="3" rowHeight="150">
-    <mat-grid-tile *ngFor="let projection of _movie.projections">
+    <mat-grid-tile *ngFor="let projection of _projections">
       <mat-card>
         <mat-card-title>
-          {{ projection.startingTime.toLocaleString() }}
+          {{ projection.time.toLocaleString() }}
           <span class="age-limit age-limit-{{ _movie.agelimit }}">{{ _movie.agelimit }}</span>
         </mat-card-title>
         <mat-card-subtitle>
@@ -38,7 +38,7 @@
           </ul>
         </mat-card-subtitle>
         <mat-card-actions align="center">
-            <button mat-flat-button color="primary" routerLink="new-reservation/{{ projection.id }}">
+            <button mat-flat-button color="primary" routerLink="/buy-ticket/{{ projection.id }}">
               Jegy vásárlás
             </button>
         </mat-card-actions>

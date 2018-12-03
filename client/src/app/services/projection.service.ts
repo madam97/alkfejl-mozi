@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class ProjectionService {
-  private route: string = "movies";
+  private route: string = "projections";
 
   constructor(
     private httpService: HttpService

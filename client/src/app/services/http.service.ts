@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const options = {
-  headers: new HttpHeaders({ 
+  "headers": new HttpHeaders({ 
     'Content-Type': 'application/json',
     'Authorization': 'Basic YWRtaW46YWRtaW4=', // admin:admin
   })
@@ -40,7 +40,7 @@ export class HttpService {
   }
 
   public delete<T>(route): Promise<T> {
-    return this.httpClient.delete(this.URL + route, this.options)
+    return this.httpClient.delete(this.URL + route, options)
       .toPromise() as Promise<T>;
   }
 }
