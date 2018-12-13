@@ -109,8 +109,12 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
     
-    @PostMapping("login")
-    public ResponseEntity login(@RequestBody User user) {
-        return ResponseEntity.ok().build();
-    } 
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody String username) {
+        Optional<User> oUser = userRepository.findByName(username);
+        if (!oUser.isPresent()) {
+            return ResponseEntity.status(401).build();
+        }
+        return ResponseEntity.ok(oUser.get());
+}
 }

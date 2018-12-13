@@ -1,4 +1,5 @@
 import { Ticket } from "./ticket";
+import { Role } from "./role";
 
 export class User {
     public id: number;
@@ -6,7 +7,7 @@ export class User {
     public email: string;
     public pass: string;
     public age: number;
-    public role: string;
+    public role: Role;
 
     public tickets: Ticket[];
 }

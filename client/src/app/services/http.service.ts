@@ -15,6 +15,18 @@ export class HttpService {
 
   private URL = 'http://localhost:8080/api/';
 
+  private get options() {
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+    if (window.localStorage.getItem('token')) {
+      headers['Authorization'] = `Basic ${window.localStorage.getItem('token')}`;
+    }
+    return {
+      headers: new HttpHeaders(headers)
+    }
+  }
+  
   constructor(
     private httpClient: HttpClient
   ) { }

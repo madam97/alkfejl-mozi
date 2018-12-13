@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatGridListModule, MatListModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatCheckboxModule } from '@angular/material';
+import { MatIconModule, MatToolbarModule, MatButtonModule, MatCardModule, MatGridListModule, MatListModule, MatTableModule, MatSelectModule, MatFormFieldModule, MatCheckboxModule, MatInputModule  } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,6 +14,7 @@ import { BuyTicketComponent } from './buy-ticket/buy-ticket.component';
 import { BuyTicketFormComponent } from './buy-ticket-form/buy-ticket-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,12 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     OneMovieComponent,
     BuyTicketComponent,
-    BuyTicketFormComponent
+    BuyTicketFormComponent,
+    LoginPageComponent
   ],
   imports: [
+    MatInputModule,
+    MatIconModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
