@@ -1,24 +1,24 @@
 <h2>Foglalásaim</h2>
 
-<table mat-table [dataSource]="_reservations" class="mat-elevation-z1">
+<table mat-table [dataSource]="tickets" class="mat-elevation-z1">
   <ng-container matColumnDef="title">
     <th mat-header-cell *matHeaderCellDef> Film </th>
-    <td mat-cell *matCellDef="let reservation"> {{reservation.projection.id}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.projection.movie.title}} </td>
   </ng-container>
 
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef> Begin </th>
-    <td mat-cell *matCellDef="let reservation"> {{reservation.startingTime.toLocaleString()}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="seat">
-    <th mat-header-cell *matHeaderCellDef> Seat </th>
-    <td mat-cell *matCellDef="let reservation"> {{reservation.seat}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.projection.time.toLocaleString()}} </td>
   </ng-container>
 
   <ng-container matColumnDef="row">
     <th mat-header-cell *matHeaderCellDef> Row </th>
-    <td mat-cell *matCellDef="let reservation"> {{reservation.row}} </td>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.row}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="seat">
+    <th mat-header-cell *matHeaderCellDef> Seat </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.seat}} </td>
   </ng-container>
   
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
