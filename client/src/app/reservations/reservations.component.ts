@@ -11,12 +11,17 @@ import { AuthService } from '../services/auth.service';
 export class ReservationsComponent implements OnInit {
 
   private tickets: Ticket[];
-  private displayedColumns = ['title', 'date', 'seat', 'row'];
+  private displayedColumns = ['title', 'date', 'seat', 'row', 'delete'];
 
   constructor(private ticketService: TicketService, private authService: AuthService) { }
 
   async ngOnInit() {
     //this._tickets = this._ticketService.getTickets();
+    this.tickets = await this.ticketService.getTicketsByUser(this.authService.user)
+  }
+
+  async deleteTicket(id: number){
+    await this.ticketService.deleteTicketById(this.authService.user, id)
     this.tickets = await this.ticketService.getTicketsByUser(this.authService.user)
   }
 

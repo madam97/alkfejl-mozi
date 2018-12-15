@@ -63,4 +63,22 @@ public class TicketController {
         ticketRepository.delete(oTicket.get());
         return ResponseEntity.ok().build();
     }
+    
+    @DeleteMapping("user/{id}/{ticketid}")
+    public ResponseEntity deleteUserTicketByID(@PathVariable Integer id, @PathVariable Integer ticketid) {
+        Optional<Ticket> oTicket = ticketRepository.findById(ticketid);
+        if (!oTicket.isPresent()) {
+            return ResponseEntity.notFound().build();   
+        }
+        else{
+            Ticket ticket = oTicket.get();
+            if(ticket.getUser().getId().equals(id)){
+                ticketRepository.delete(ticket);
+                return ResponseEntity.ok().build();
+            }
+            else{
+                return ResponseEntity.status(401).build();
+            }
+        }
+    }
 }

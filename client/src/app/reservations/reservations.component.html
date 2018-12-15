@@ -7,18 +7,23 @@
   </ng-container>
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Begin </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket.projection.time.toLocaleString()}} </td>
+    <th mat-header-cell *matHeaderCellDef> Kezdés </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.projection.time | date:'yyyy/MM/dd HH:mm'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="row">
-    <th mat-header-cell *matHeaderCellDef> Row </th>
+    <th mat-header-cell *matHeaderCellDef> Sor </th>
     <td mat-cell *matCellDef="let ticket"> {{ticket.row}} </td>
   </ng-container>
 
   <ng-container matColumnDef="seat">
-    <th mat-header-cell *matHeaderCellDef> Seat </th>
+    <th mat-header-cell *matHeaderCellDef> Szék </th>
     <td mat-cell *matCellDef="let ticket"> {{ticket.seat}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let ticket"> <button mat-flat-button type="delete" color="primary" (click)="deleteTicket(ticket.id)">Foglalás törlése</button> </td>
   </ng-container>
   
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

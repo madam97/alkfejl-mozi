@@ -28,6 +28,10 @@ export class TicketService {
 
   public getTicketsByUser(user: User): Promise<Ticket[]> {
     return this.httpService.get<Ticket[]>(this.route + '/user/' + user.id)
-}
+  }
+
+  public deleteTicketById(user: User, id: number): Promise<Ticket>{
+    return this.httpService.delete<Ticket>(this.route + '/user/' + user.id + '/' + id)
+  }
 
 }
