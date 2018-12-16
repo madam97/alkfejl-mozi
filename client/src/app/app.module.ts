@@ -15,9 +15,17 @@ import { BuyTicketFormComponent } from './buy-ticket-form/buy-ticket-form.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { NewProjectionComponent } from './new-projection/new-projection.component';
+import { NewMovieFormComponent } from './new-movie-form/new-movie-form.component';
+import { NewProjectionFormComponent } from './new-projection-form/new-projection-form.component';
+import { NewMovieComponent } from './new-movie/new-movie.component';
 
 @NgModule({
   declarations: [
+    NewProjectionComponent,
+    NewProjectionFormComponent,
+    NewMovieComponent,
+    NewMovieFormComponent,
     AppComponent,
     NavbarComponent,
     ReservationsComponent,

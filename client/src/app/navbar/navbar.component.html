@@ -8,21 +8,20 @@
     <button class="float-right" mat-button routerLink="/login">Login</button>
   </div>
 
-  
-
-  <div *ngIf="authService.isLoggedIn">
+  <div *ngIf="authService.isLoggedIn && checkAdmin()">
     <button mat-button routerLink="my-reservations">My reservations</button>
     <button class="float-right" mat-button (click)="authService.logout()">Logout</button>
     <div class="float-right">  | {{authService.user.name}}</div>
-    <div *ngIf="checkAdmin()">
-        <button class="float-right" mat-button routerLink="/login">ADMIN MENU</button>
-    </div>
+    <button class="float-right" mat-button routerLink="add-movie">Add movie</button>
+    <button class="float-right" mat-button routerLink="add-projection">Add projection</button>
+    <button class="float-right" mat-button routerLink="tickets">Tickets</button>
+    <div class="float-right">  | </div>
   </div>
 
-  
-
-  
-
-  
+  <div *ngIf="authService.isLoggedIn && !checkAdmin()">
+      <button mat-button routerLink="my-reservations">My reservations</button>
+      <button class="float-right" mat-button (click)="authService.logout()">Logout</button>
+      <div class="float-right">  | {{authService.user.name}}</div>
+  </div>
 
 </mat-toolbar>
