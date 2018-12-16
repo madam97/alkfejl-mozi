@@ -1,5 +1,6 @@
 package hu.elte.AlkfejlMozi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -27,6 +28,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Ticket> tickets;
     
