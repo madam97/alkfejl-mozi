@@ -35,6 +35,10 @@ export class TicketService {
     return this.httpService.delete<Ticket>(this.route + '/user/' + user.id + '/' + id);
   }
 
+  public deleteTicket(id: number): Promise<Ticket>{
+    return this.httpService.delete<Ticket>(this.route + '/' + id);
+  }
+
   public getTicketsByProjection(projectionId: Number): Promise<Ticket[]> {
     return this.httpService.get<Ticket[]>(this.route + '/projection/' + projectionId);
   }

@@ -19,6 +19,7 @@ import { NewProjectionComponent } from './new-projection/new-projection.componen
 import { NewMovieFormComponent } from './new-movie-form/new-movie-form.component';
 import { NewProjectionFormComponent } from './new-projection-form/new-projection-form.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
+import { TicketsComponent } from './tickets/tickets.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NewMovieComponent } from './new-movie/new-movie.component';
     OneMovieComponent,
     BuyTicketComponent,
     BuyTicketFormComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    TicketsComponent
   ],
   imports: [
     MatMenuModule,
