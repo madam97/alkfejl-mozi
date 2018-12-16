@@ -78,3 +78,19 @@ hr {
 mat-toolbar > div {
     width: 100%;
 }
+
+/* terem tábla */
+
+.room-table {
+    margin-bottom: 30px;
+}
+.room-table th {
+    background-color: #000;
+    color: #fff;
+}
+.room-table td {
+    text-align: center;
+}
+.room-table td.disabled {
+    background-color: #b0b0b0;
+}

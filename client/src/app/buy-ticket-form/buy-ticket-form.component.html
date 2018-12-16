@@ -1,7 +1,21 @@
 <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
-  <p *ngFor="let row of _room">
-    <mat-checkbox *ngFor="let seat of row" formControlName="{{ seat }}"></mat-checkbox>
-  </p>
+  <table class="room-table">
+    <tr>
+      <th></th>
+      <th *ngFor="let seat of  _room[0]; let i = index">{{i+1}}. szék</th>
+      <th></th>
+    </tr>
 
-  <button mat-flat-button type="submit" color="primary">Foglalás</button>
+    <tr *ngFor="let row of _room; let i = index">
+      <th>{{i+1}}. sor</th>
+
+      <td *ngFor="let seat of row" class="{{ seat.disabled ? 'disabled' : '' }}">
+        <mat-checkbox formControlName="{{ seat.id }}"></mat-checkbox>
+      </td>
+
+      <th>{{i+1}}. sor</th>
+    </tr>
+  </table>
+
+  <button mat-flat-button type="submit" color="primary">Reserve seats</button>
 </form>

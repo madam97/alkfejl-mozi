@@ -23,15 +23,20 @@ export class TicketService {
   }
 
   public addTicket(ticket: Ticket): void {
+    console.log('ADD:', ticket);
     this.httpService.post<Ticket>(this.route, ticket);
   }
 
   public getTicketsByUser(user: User): Promise<Ticket[]> {
-    return this.httpService.get<Ticket[]>(this.route + '/user/' + user.id)
+    return this.httpService.get<Ticket[]>(this.route + '/user/' + user.id);
   }
 
   public deleteTicketById(user: User, id: number): Promise<Ticket>{
-    return this.httpService.delete<Ticket>(this.route + '/user/' + user.id + '/' + id)
+    return this.httpService.delete<Ticket>(this.route + '/user/' + user.id + '/' + id);
+  }
+
+  public getTicketsByProjection(projectionId: Number): Promise<Ticket[]> {
+    return this.httpService.get<Ticket[]>(this.route + '/projection/' + projectionId);
   }
 
 }

@@ -1,5 +1,5 @@
 <h2>
-  Foglalás: {{ _projection?.movie.title }}{{ _projection?.time }}.
+  Reservation: {{ _projection?.movie.title }} {{ _projection?.time | date:'yyyy/MM/dd HH:mm' }}
 </h2>
 
 <app-buy-ticket-form [projection]="_projection"

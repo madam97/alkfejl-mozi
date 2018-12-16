@@ -2,6 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Ticket } from '../classes/ticket';
 import { Projection } from '../classes/projection';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectionService } from '../services/projection.service';
+import { TicketService } from '../services/ticket.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-buy-ticket-form',
@@ -12,30 +16,50 @@ export class BuyTicketFormComponent implements OnInit {
   @Input('projection') public projection: Projection;
   @Output('save') public save: EventEmitter<Ticket[]> = new EventEmitter<Ticket[]>(); 
 
+  private _buyedTickets: Ticket[];
   private _tickets: Ticket[];
 
-  private _room: string[][];
+  private _room: Object[][];
 
   private ticketForm;
 
   constructor(
-    private fb: FormBuilder
-  ) {
-    let fbGroup : Object;
+    private route: ActivatedRoute,
+    private projectionService: ProjectionService,
+    private ticketService: TicketService,
 
+    private authService: AuthService,
+    
+    private fb: FormBuilder
+  ) {}
+
+  async ngOnInit() {
+    const id: number = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.projection = await this.projectionService.getProjection(id);
+    this._buyedTickets = await this.ticketService.getTicketsByProjection(id);
+
+    console.log('PROJETION:', this.projection);
+    console.log('TICKETS:', this._buyedTickets);
+
+    let fbGroup : Object = {};
+
+    this._room = [];
     for (let i: number = 0; i < this.projection.room.rows; ++i) {
+      this._room[i] = [];
       for (let j: number = 0; j < this.projection.room.seats; ++j) {
         let seatId : string = "r"+i+"s"+j;
-        this._room[i][j] = seatId;
 
         let reserved = false;
         let x : number = 0;
-        while (x < this.projection.tickets.length && !reserved) {
-          if (this.projection.tickets[x].row == i && this.projection.tickets[x].seat == j) {
+        while (x < this._buyedTickets.length && !reserved) {
+          if (this._buyedTickets[x].row == i && this._buyedTickets[x].seat == j) {
             reserved = true;
           }
           ++x;
         }
+
+        
+        this._room[i][j] = {'id' : seatId, 'disabled' : reserved};
 
         let data : Array<Object> = [{value: '', disabled: reserved}];
 
@@ -46,11 +70,9 @@ export class BuyTicketFormComponent implements OnInit {
     this.ticketForm = this.fb.group(fbGroup);
   }
 
-  ngOnInit() {
-    
-  }
-
   private onSubmit() {
+    this._tickets = [];
+
     for (let i: number = 0; i < this.projection.room.rows; ++i) {
       for (let j: number = 0; j < this.projection.room.seats; ++j) {
         let seatId : string = "r"+i+"s"+j;
@@ -59,7 +81,7 @@ export class BuyTicketFormComponent implements OnInit {
           this._tickets.push({
             id: null,
             projection: this.projection,
-            //user: ,
+            user: this.authService.user,
             row: i,
             seat: j
           } as Ticket);
@@ -67,9 +89,12 @@ export class BuyTicketFormComponent implements OnInit {
       }
     }
 
-    this.save.emit(this._tickets);
+    if (this._tickets) {
+      this.save.emit(this._tickets);
+      
+      console.log(this._tickets);
+    }
 
-    console.log(this._tickets);
   }
 
 }

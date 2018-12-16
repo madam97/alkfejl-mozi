@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Projection } from '../classes/projection';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectionService } from '../services/projection.service';
 import { TicketService } from '../services/ticket.service';
 import { Ticket } from '../classes/ticket';
@@ -15,6 +15,7 @@ export class BuyTicketComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private projectionService: ProjectionService,
     private ticketService: TicketService
   ) { }
@@ -28,6 +29,8 @@ export class BuyTicketComponent implements OnInit {
     for (let ticket of tickets) {
       this.ticketService.addTicket(ticket);
     }
+    alert('Your reservations have been successfully saved in our database.');
+    this.router.navigateByUrl('');
   }
 
 }
