@@ -52,7 +52,7 @@ export class BuyTicketFormComponent implements OnInit {
         let reserved = false;
         let x : number = 0;
         while (x < this._buyedTickets.length && !reserved) {
-          if (this._buyedTickets[x].row == i && this._buyedTickets[x].seat == j) {
+          if (this._buyedTickets[x].row == i+1 && this._buyedTickets[x].seat == j+1) {
             reserved = true;
           }
           ++x;

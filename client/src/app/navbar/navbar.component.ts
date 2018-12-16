@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service'; 
+import { AuthService } from '../services/auth.service';
+import { Role } from '../classes/role';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,10 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  public checkAdmin(): boolean {
+    return this.authService.user.role.toString()==Role[2];
   }
 
 }
