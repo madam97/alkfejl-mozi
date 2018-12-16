@@ -17,6 +17,7 @@ export class NewMovieComponent implements OnInit {
 
   private onSave(movie: Movie){
     this.movieService.addMovie(movie);
+    alert("The new movie has been added.");
   }
 
 }

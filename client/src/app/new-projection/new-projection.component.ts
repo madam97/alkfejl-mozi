@@ -17,6 +17,7 @@ export class NewProjectionComponent implements OnInit {
 
   private onSave(projection: Projection){
     this.projectionService.addProjection(projection);
+    alert("The new projection has been added.");
   }
 
 }
