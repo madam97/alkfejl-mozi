@@ -10,6 +10,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { NewProjectionComponent } from './new-projection/new-projection.component';
 import { NewMovieComponent } from './new-movie/new-movie.component';
 import { TicketsComponent } from './tickets/tickets.component';
+import { MoviesAdminComponent } from './movies-admin/movies-admin.component';
 
 const routes: Route[] = [
   { path: '', component:  HomeComponent},
@@ -20,7 +21,8 @@ const routes: Route[] = [
   { path: 'login', component: LoginPageComponent },
   { path: 'new-movie', component: NewMovieComponent, canActivate: [AuthGuard]},
   { path: 'new-projection', component: NewProjectionComponent, canActivate: [AuthGuard]},
-  { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]}
+  { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]},
+  { path: 'movies-admin', component:  MoviesAdminComponent},
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Title" value="" formControlName="title" required>
+    <input matInput placeholder="Title" formControlName="movieTitle" required>
   </mat-form-field>
   <br> 
   <mat-form-field class="example-full-width">
@@ -21,7 +21,7 @@
   </mat-form-field>
   <br> 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Length in minutes" value="" formControlName="length" required>
+    <input matInput placeholder="Length in minutes" formControlName="length" required>
   </mat-form-field>
   <br> 
   <h4>Actors in the movie</h4>

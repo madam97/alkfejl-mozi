@@ -1,0 +1,31 @@
+<h2>All Movies</h2>
+
+<table mat-table [dataSource]="movies" class="mat-elevation-z1">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="length">
+    <th mat-header-cell *matHeaderCellDef> Length </th>
+     <td mat-cell *matCellDef="let movie"> {{movie.length}} min </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rate">
+    <th mat-header-cell *matHeaderCellDef> Rating </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.rate}} / 10 </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let movie"> <button class="float-right" mat-flat-button type="delete" color="primary" (click)="deleteMovie(movie.id)">Remove movie</button> </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

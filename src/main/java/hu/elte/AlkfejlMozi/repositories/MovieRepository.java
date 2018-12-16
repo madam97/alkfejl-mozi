@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
+    public Optional<Movie> findById(Integer id);
     public Optional<Movie> findByTitle(String name);  
 }

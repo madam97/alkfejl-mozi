@@ -24,4 +24,8 @@ export class MovieService {
     this.httpService.post<Movie>(this.route, movie);
   }
 
+  public deleteMovie(id: number): Promise<Movie>{
+    return this.httpService.delete<Movie>(this.route + '/' + id);
+  }
+
 }
