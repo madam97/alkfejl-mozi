@@ -12,16 +12,16 @@ Az API mozikhoz, filmekhez és vetítésekhez tartozó adatokat fog kezelni. Az 
 
 ## Fogalomjegyzék
 
-* *mozi*: az a hely, ahol filmeket vetítenek
+* *terem*: az a terem, ahol filmeket vetítenek
 * *film*: ezt vetítik a mozikban
 * *vetítés*: megmutatja, hogy egy moziban milyen filmet vetítenek
 * *rendelés*: megmutatja, hogy a belépett felhasználó melyik vetítésre vett jegyet
 
 ## Szerepkörök 
 
-* *regisztrálatlan felhasználó (ROLE_GUEST)*: látja a mozik, filmek és vetítések adatait, regisztrálhat az oldalra
-* *regisztrált felhasználó (ROLE_USER)*: regisztráció utáni felhasználó, aki látja a mozik, filmek és vetítések adatait, belépés után pedig a saját rendeléseit megtekintheti és törölheti, illetve újak rendelést adhat le
-* *admin felhasználó (ROLE_ADMIN)*: olyan felhasználó, aki látja a mozik, filmek és vetítések adatait, bármelyik rendelést láthatja, törölheti, újat adhat hozzá és változtathatja, illetve a regisztrált felhasználókból admin felhasználót készíthet, illetve felhasználót törölhet
+* *regisztrálatlan felhasználó (ROLE_GUEST)*: látja a filmek és vetítések adatait, regisztrálhat az oldalra
+* *regisztrált felhasználó (ROLE_USER)*: regisztráció utáni felhasználó, aki látja a filmek és vetítések adatait, belépés után pedig a saját jegyeit megtekintheti és törölheti, illetve új jegyet vehet.
+* *admin felhasználó (ROLE_ADMIN)*: olyan felhasználó, aki látja a filmek és vetítések adatait, bármelyik jegyet láthatja, törölheti, újat adhat hozzá és változtathatja, illetve a regisztrált felhasználókból admin felhasználót készíthet, illetve felhasználót törölhet
 
 ## Funkcionális követelmények
 
@@ -74,7 +74,7 @@ Oszlopnév | Típus | Leírás
 id | int | elsődleges kulcs
 role | enum | ROLE_USER vagy ROLE_ADMIN
 name | varchar | felhasználó neve
-name | varchar | felhasználó emailje
+email | varchar | felhasználó emailje
 pass | varchar | felhasználó jelszava
 age | int | felhasználó kora
 
@@ -86,7 +86,7 @@ id | int | elsődleges kulcs
 user_id | int | a rendelést leadó felhasználó ID-je
 projection_id | int | a vetítés ID-je, amire szól a rendelés
 row | int | sorszám
-seat | int | szék sorszáma
+seat | int | szék száma
 
 ### API parancsok
 
@@ -100,8 +100,6 @@ POST | /users/register | regisztrál az oldalra a megadott felhasználói adatok
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /cinemas | az összes mozi
-GET | /cinemas/{id} | az adott ID-vel rendelkező mozi
 GET | /movies | az összes film
 GET | /movies/{id} | az adott ID-vel rendelkező film
 GET | /projections | az összes vetítés
@@ -111,10 +109,12 @@ GET | /projections/{id} | az adott ID-vel rendelkező vetítés
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /my/projections | a belépett felhasználó összes rendelése
-GET | /my/projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelése
-POST | /my/projections | a belépett felhasználónak létrehoz egy új rendelést | 
-DELETE | /my/projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelését törli
+GET | /projections | a belépett felhasználó összes rendelése
+GET | /projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelése
+GET | /tickets/user/{id} | az adott felhasználó jegyei
+POST | /projections | a belépett felhasználónak létrehoz egy új rendelést | 
+DELETE | /projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelését törli
+DELETE | /tickets/{id}/{ticketid} | adott felhasználó, adott jegyének törlése
 
 #### ROLE_ADMIN
 
@@ -124,17 +124,17 @@ GET | /users | összes felhasználó
 GET | /users/{id} | az adott ID-vel rendelkező felhasználó
 GET | /users/{id}/projections | az adott ID-vel rendelkező felhasználó vetítése, melyekre jegyet vett
 GET | /projections/{id}/users | az adott ID-vel rendelkező vetítésre jegyet vett felhasználók
-POST | /cinemas | új mozi
+GET | /tickets | összes jegy
+GET | /tickets/{id} | az adott jegy
 POST | /movies | új film
 POST | /projections | új vetítés
-PUT | /cinemas | megadott mozi adatainak módosítása
 PUT | /movies | megadott film adatainak módosítása
 PUT | /projections | megadott vetítés adatainak módosítása
 PATCH | /users/{id}/to-admin   | a megadott felhasználót adminná teszi
-DELETE | /cinemas/{id} | megadott mozit törli, és a hozzá tartozó vetítéseket és rendeléseket
-DELETE | /movies/{id} | megadott filmet törli,, és a hozzá tartozó vetítéseket és rendeléseket
+DELETE | /movies/{id} | megadott filmet törli, és a hozzá tartozó vetítéseket és rendeléseket
 DELETE | /projections/{id} | megadott vetítést törli, és a hozzá tartozó rendeléseket
 DELETE | /users/{id} | megadott felhasználó törli, és a hozzá tartozó rendeléseket
+DELETE | /tickets/{id} | az adott jegy törlése
 
 ### Frontend terv képek
 
