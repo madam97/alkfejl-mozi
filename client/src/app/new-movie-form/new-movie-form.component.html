@@ -1,0 +1,32 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" value="" formControlName="title" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Age limit" formControlName="agelimit">
+      <mat-option value="0">0</mat-option>
+      <mat-option value="12">12</mat-option>
+      <mat-option value="16">16</mat-option>
+      <mat-option value="18">18</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Rating value=" formControlName="rate" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Length in minutes" value="" formControlName="length" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-checkbox *ngFor="let actor of _actors" formControlName="actor{{ actor.id }}">{{ actor.name }}</mat-checkbox>
+  </mat-form-field>
+
+  <button mat-flat-button type="submit" color="primary">Add new movie</button>
+</form>

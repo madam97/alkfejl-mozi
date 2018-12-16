@@ -16,6 +16,10 @@ export class ProjectionService {
     return this.httpService.get<Projection[]>(this.route);
   }
 
+  public addProjection(projection: Projection): void {
+    this.httpService.post<Projection>(this.route, projection);
+  }
+
   public getProjection(id: number) : Promise<Projection> {
     return this.httpService.get<Projection>(this.route + "/" + id);
   }
