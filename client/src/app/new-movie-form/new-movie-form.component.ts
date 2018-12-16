@@ -27,7 +27,13 @@ export class NewMovieFormComponent implements OnInit {
     actors: null
   };
 
-  private movieForm;
+  private movieForm = this.fb.group({
+    movieTitle: [''],
+    agelimit: [''],
+    description: [''],
+    rate: [''],
+    length: ['']
+  });
 
   constructor(
     private actorService: ActorService,
@@ -54,7 +60,9 @@ export class NewMovieFormComponent implements OnInit {
   }
 
   private onSubmit() {
+    console.log(this._movie.title);
     this._movie.title = this.movieForm.get('movieTitle').value;
+    console.log(this._movie.title);
     this._movie.agelimit = this.movieForm.get('agelimit').value;
     this._movie.description = this.movieForm.get('description').value;
     this._movie.rate = this.movieForm.get('rate').value;

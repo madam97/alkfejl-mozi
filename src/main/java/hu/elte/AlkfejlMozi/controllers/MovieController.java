@@ -39,13 +39,13 @@ public class MovieController {
     }
     
     @DeleteMapping("/{id}")
-    @Secured({ "ROLE_ADMIN" })
+    //@Secured({ "ROLE_ADMIN" })
     public ResponseEntity delete(@PathVariable Integer id) {
         Optional<Movie> oMovie = movieRepository.findById(id);
         if (!oMovie.isPresent()) {
             return ResponseEntity.notFound().build();   
         }
-            
+        
         movieRepository.delete(oMovie.get());
         return ResponseEntity.ok().build();
     }
