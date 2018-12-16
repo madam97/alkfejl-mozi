@@ -1,4 +1,4 @@
-<h2>Nézd meg legújabb filmeinket!</h2>
+<h2>Watch new movies!</h2>
 
 <mat-grid-list cols="3" rowHeight="270">
   <mat-grid-tile *ngFor="let movie of _movies">
@@ -10,13 +10,13 @@
       <mat-card-subtitle>
         <p>{{ movie.description }}</p>
         <ul class="movie-data">
-          <li>Hossz: {{ movie.length }} perc</li>
-          <li>Értékelés: {{ movie.rate }} / 10</li>
+          <li>Length: {{ movie.length }} perc</li>
+          <li>Rating: {{ movie.rate }} / 10</li>
         </ul>
       </mat-card-subtitle>
       <mat-card-actions align="right">
         <a mat-flat-button color="primary" href="movies/{{ movie.id }}">
-          Tovább &#187;
+          More &#187;
         </a>
       </mat-card-actions>
     </mat-card>

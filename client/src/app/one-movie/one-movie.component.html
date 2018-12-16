@@ -7,39 +7,39 @@
     <p>{{ _movie.description}}</p>
     
     <ul class="movie-data">
-      <li>Hossz: {{ _movie.length }} perc</li>
-      <li>Értékelés: {{ _movie.rate }} / 10</li>
+      <li>Length: {{ _movie.length }} perc</li>
+      <li>Rating: {{ _movie.rate }} / 10</li>
     </ul>
 
     <hr/>
 
-    <h4>Szereplők</h4>
+    <h4>Actors</h4>
     <ul class="movie-data">
       <li *ngFor="let actor of _movie.actors">{{ actor.name }}</li>
     </ul>
 </div>
 
-<h3>Vetítések</h3>
+<h3>Projections</h3>
 
-<mat-grid-list cols="3" rowHeight="150">
+<mat-grid-list cols="3" rowHeight="300">
     <mat-grid-tile *ngFor="let projection of _projections">
-      <mat-card>
+      <mat-card class="movie-list-element">
         <mat-card-title>
-          {{ projection.time.toLocaleString() }}
+          {{ projection.time.toLocaleString() | date:'yyyy/MM/dd HH:mm' }}
           <span class="age-limit age-limit-{{ _movie.agelimit }}">{{ _movie.agelimit }}</span>
         </mat-card-title>
         <mat-card-subtitle>
           <ul class="movie-data">
             <strong>
-              <li>{{ projection.room.name }} (max {{ projection.room.seats * projection.room.rows }} fő)</li>
+              <li>{{ projection.room.name }} (max {{ projection.room.seats * projection.room.rows }} person)</li>
             </strong>
-            <li>Jegyár: {{ projection.price }}</li>
-            <li>3d vetítés: {{ projection.is3d ? "igen" : "nem" }}</li>
+            <li>Ticket price: {{ projection.price }}</li>
+            <li>3D projection: {{ projection.is3d ? "yes" : "no" }}</li>
           </ul>
         </mat-card-subtitle>
         <mat-card-actions align="center">
             <button mat-flat-button color="primary" routerLink="/buy-ticket/{{ projection.id }}">
-              Jegy vásárlás
+              Buy ticket
             </button>
         </mat-card-actions>
       </mat-card>

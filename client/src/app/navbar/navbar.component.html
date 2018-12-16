@@ -1,14 +1,14 @@
 <mat-toolbar>
-  <span>Mozifilmek&trade;</span>
-  <button mat-button routerLink="">Főoldal</button>
-  <button mat-button routerLink="movies">Filmek</button>
-  <button mat-button routerLink="my-reservations">Foglalásaim</button>
+  <span>Movies&trade;</span>
+  <button mat-button routerLink="">Home</button>
+  <button mat-button routerLink="movies">Movies</button>
 
   <div *ngIf="!authService.isLoggedIn">
-    <button mat-button routerLink="/login">Login</button>
+    <button class="float-right" mat-button routerLink="/login">Login</button>
   </div>
   <div *ngIf="authService.isLoggedIn">
     {{authService.user.username}}
-    <button mat-button (click)="authService.logout()">Logout</button>
+    <button mat-button routerLink="my-reservations">My reservations</button>
+    <button class="float-right" mat-button (click)="authService.logout()">Logout</button>
   </div>
 </mat-toolbar>

@@ -12,6 +12,8 @@ hr {
     margin: 30px auto;
 }
 
+.float-right {float: right;}
+
 .mat-flat-button.mat-primary {
     background: #972828;
 }
@@ -65,7 +67,14 @@ hr {
     background-color: #ccc;
 }
 .movie-list-element mat-card-title {
+    overflow: auto;
     padding: 10px;
     color: #fff;
     background-color: #000;
+}
+
+/* navbar */
+
+mat-toolbar > div {
+    width: 100%;
 }

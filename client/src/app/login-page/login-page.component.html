@@ -1,4 +1,4 @@
-<h1>Bejelentkezés</h1>
+<h1>Login with your account</h1>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
     <input matInput placeholder="Username" formControlName="username" required>
@@ -12,7 +12,7 @@
    </mat-form-field>
  
   <div>
-    <button mat-flat-button type="submit" color="primary" [disabled]="loginForm.invalid">Bejelentkezés</button>
+    <button mat-flat-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
   </div>
   <div>
     {{message}}
