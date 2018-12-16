@@ -66,10 +66,6 @@ public class ProjectionController {
     @PostMapping("")
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity<Projection> post(@RequestBody Projection projection) {
-        Optional<Projection> oProjection = projectionRepository.findById(projection.getId());
-        if (oProjection.isPresent()) {
-            return ResponseEntity.badRequest().build();
-        }
         projection.setId(null);
         return ResponseEntity.ok(projectionRepository.save(projection));
     }

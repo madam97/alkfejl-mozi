@@ -2,26 +2,24 @@
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Price" value="" formControlName="price" required>
   </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <mat-checkbox formControlName="is3d">Is 3D projection?</mat-checkbox>
-  </mat-form-field>
-
+  <br> 
+  <mat-checkbox formControlName="is3d">Is 3D projection?</mat-checkbox>
+  <br> 
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Time" value="" formControlName="time" required>
   </mat-form-field>
-
+  <br> 
   <mat-form-field class="example-full-width">
     <mat-select placeholder="Room" formControlName="room">
       <mat-option *ngFor="let room of _rooms" value="{{ room.id }}">{{ room.name }}</mat-option>
     </mat-select>
   </mat-form-field>
-
+  <br> 
   <mat-form-field class="example-full-width">
     <mat-select placeholder="Movie" formControlName="movie">
       <mat-option *ngFor="let movie of _movies" value="{{ movie.id }}">{{ movie.title }}</mat-option>
     </mat-select>
   </mat-form-field>
-
+  <br> 
   <button mat-flat-button type="submit" color="primary">Add new projection</button>
 </form>

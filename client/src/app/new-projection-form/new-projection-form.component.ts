@@ -25,7 +25,7 @@ export class NewProjectionFormComponent implements OnInit {
     time: null,
     room: null,
     movie: null,
-    tickets: null
+    tickets: []
   };
 
   private projectionForm = this.fb.group({

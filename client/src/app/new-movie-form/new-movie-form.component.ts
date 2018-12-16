@@ -45,15 +45,15 @@ export class NewMovieFormComponent implements OnInit {
     this._actors = await this.actorService.getActors();
 
     let fbGroup : Object = {
-      title: [{value: ''}],
-      agelimit: [{value: ''}],
-      description: [{value: ''}],
-      rate: [{value: ''}],
-      length: [{value: ''}]
+      title: [''],
+      agelimit: [''],
+      description: [''],
+      rate: [''],
+      length: ['']
     };
 
-    for (let i : number = 0; i < this._actors.length; ++i) {
-      let actorId : string = "actor"+i;
+    for (let actor of this._actors) {
+      let actorId : string = "actor"+actor.id;
       fbGroup[actorId] = [{value: ''}];
     }
 
@@ -68,11 +68,11 @@ export class NewMovieFormComponent implements OnInit {
     this._movie.length = this.movieForm.get('length').value;
 
     this._movie.actors = [];
-    for (let i : number = 0; i < this._actors.length; ++i) {
-      let actorId : string = "actor"+i;
+    for (let actor of this._actors) {
+      let actorId : string = "actor"+actor.id;
       if (this.movieForm.get(actorId).value) {
-        for (let actor of this._actors) {
-          if (actor.id == i) {
+        for (let actor2 of this._actors) {
+          if (actor.id == actor2.id) {
             this._movie.actors.push(actor);
           }
         }
