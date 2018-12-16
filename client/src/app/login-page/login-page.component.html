@@ -1,5 +1,6 @@
-<h1>Login with your account</h1>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>Login with your account</h2>
+  
   <mat-form-field>
     <input matInput placeholder="Username" formControlName="username" required>
     <mat-error *ngIf="loginForm.get('username').invalid">Username is required</mat-error>

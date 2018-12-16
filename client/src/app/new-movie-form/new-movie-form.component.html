@@ -24,7 +24,8 @@
     <input matInput placeholder="Length in minutes" value="" formControlName="length" required>
   </mat-form-field>
   <br> 
-  <mat-checkbox *ngFor="let actor of _actors" formControlName="actor{{ actor.id }}">{{ actor.name }}</mat-checkbox>
+  <h4>Actors in the movie</h4>
+  <mat-checkbox class="actor" *ngFor="let actor of _actors" formControlName="actor{{ actor.id }}">{{ actor.name }}</mat-checkbox>
   <br> 
-  <button mat-flat-button type="submit" color="primary">Add new movie</button>
+  <button class="margin-top-30" mat-flat-button type="submit" color="primary">Add new movie</button>
 </form>

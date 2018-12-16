@@ -24,8 +24,4 @@ export class MovieService {
     this.httpService.post<Movie>(this.route, movie);
   }
 
-  public getLastMovies(size: number): Promise<Movie[]>{
-    return this.httpService.get<Movie[]>(this.route);
-  }
-
 }

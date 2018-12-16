@@ -12,11 +12,11 @@ export class HomeComponent implements OnInit {
   private _movies: Movie[];
 
   constructor(
-    private _moviesService: MovieService
+    private movieService: MovieService
   ) { }
 
   async ngOnInit() {
-    this._movies = await this._moviesService.getMovies();
+    this._movies = await this.movieService.getMovies();
   }
 
 }

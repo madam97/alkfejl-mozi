@@ -13,6 +13,7 @@ hr {
 }
 
 .float-right {float: right;}
+.margin-top-30 {margin-top: 30 !important;}
 
 .mat-flat-button.mat-primary {
     background: #972828;
@@ -73,10 +74,37 @@ hr {
     background-color: #000;
 }
 
+.example-full-width {
+    width: 100%;
+}
+
 /* navbar */
 
 mat-toolbar > div {
     width: 100%;
+}
+
+/* home page */
+div#home-background {
+    position: relative;
+    margin-top: -10px;
+    width: 100%;
+    height: 300px;
+    background-image: url('./images/home-background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 10px solid #000;
+}
+div#home-background h2 {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 30px;
+    color: #fff;
+    letter-spacing: 5px;
+    font-size: 40px;
+    background-color: #972828aa;
 }
 
 /* terem tábla */
@@ -93,4 +121,17 @@ mat-toolbar > div {
 }
 .room-table td.disabled {
     background-color: #b0b0b0;
+}
+
+/* formok */
+mat-checkbox.actor {
+    display: inline-block;
+    width: 25%;
+}
+
+#login-form {
+    text-align: center;
+}
+#login-form mat-form-field {
+    width: 200px;
 }
