@@ -4,6 +4,7 @@ import { Movie } from '../classes/movie';
 import { Projection } from '../classes/projection';
 import { MovieService } from '../services/movie.service';
 import { ProjectionService } from '../services/projection.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-one-movie',
@@ -17,6 +18,8 @@ export class OneMovieComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
+
     private _moviesService: MovieService,
     private _projectionService: ProjectionService
   ) { }
