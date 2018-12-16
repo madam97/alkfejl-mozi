@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../classes/movie';
 
@@ -11,9 +10,6 @@ import { Movie } from '../classes/movie';
 export class NewMovieComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-
     private movieService : MovieService
   ) { }
 

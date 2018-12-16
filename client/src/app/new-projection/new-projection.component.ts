@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectionService } from '../services/projection.service';
 import { Projection } from '../classes/projection';
 
@@ -11,9 +10,6 @@ import { Projection } from '../classes/projection';
 export class NewProjectionComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-
     private projectionService : ProjectionService
   ) { }
 

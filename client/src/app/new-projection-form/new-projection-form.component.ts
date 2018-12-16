@@ -15,8 +15,8 @@ export class NewProjectionFormComponent implements OnInit {
   @Input('projection') public projection: Projection;
   @Output('save') public save: EventEmitter<Projection> = new EventEmitter<Projection>(); 
 
-  private _movie: Movie;
-  private _room: Room;
+  private _movies: Movie[];
+  private _rooms: Room[];
 
   private _projection: Projection = {
     id: null,
@@ -43,12 +43,14 @@ export class NewProjectionFormComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this._rooms = await this.roomService.getRooms();
+    this._movies = await this.movieService.getMovies();
   }
 
   private async onSubmit() {
     this._projection.price = this.projectionForm.get('price').value;
     this._projection.is3d = this.projectionForm.get('is3d').value;
-    this._projection.time = this.projectionForm.get('time').value;
+    this._projection.time = new Date( this.projectionForm.get('time').value );
     this._projection.room = await this.roomService.getRoom( this.projectionForm.get('room').value );
     this._projection.movie = await this.movieService.getMovie( this.projectionForm.get('movie').value );
 

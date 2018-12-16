@@ -1,32 +1,27 @@
-<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="projectionForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Title" value="" formControlName="title" required>
+    <input matInput placeholder="Price" value="" formControlName="price" required>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <mat-select placeholder="Age limit" formControlName="agelimit">
-      <mat-option value="0">0</mat-option>
-      <mat-option value="12">12</mat-option>
-      <mat-option value="16">16</mat-option>
-      <mat-option value="18">18</mat-option>
+    <mat-checkbox formControlName="is3d">Is 3D projection?</mat-checkbox>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Time" value="" formControlName="time" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Room" formControlName="room">
+      <mat-option *ngFor="let room of _rooms" value="{{ room.id }}">{{ room.name }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+    <mat-select placeholder="Movie" formControlName="movie">
+      <mat-option *ngFor="let movie of _movies" value="{{ movie.id }}">{{ movie.title }}</mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Rating value=" formControlName="rate" required>
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Length in minutes" value="" formControlName="length" required>
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <mat-checkbox *ngFor="let actor of _actors" formControlName="actor{{ actor.id }}">{{ actor.name }}</mat-checkbox>
-  </mat-form-field>
-
-  <button mat-flat-button type="submit" color="primary">Add new movie</button>
+  <button mat-flat-button type="submit" color="primary">Add new projection</button>
 </form>
