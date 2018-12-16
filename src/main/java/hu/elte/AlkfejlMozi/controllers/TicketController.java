@@ -1,9 +1,11 @@
 package hu.elte.AlkfejlMozi.controllers;
 
+import hu.elte.AlkfejlMozi.entities.Projection;
 import hu.elte.AlkfejlMozi.entities.Ticket;
 import hu.elte.AlkfejlMozi.entities.User;
 import hu.elte.AlkfejlMozi.repositories.TicketRepository;
 import hu.elte.AlkfejlMozi.repositories.UserRepository;
+import hu.elte.AlkfejlMozi.repositories.ProjectionRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +27,8 @@ public class TicketController {
     private TicketRepository ticketRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProjectionRepository projectionRepository;
     
     @GetMapping("")
     @Secured({ "ROLE_ADMIN" })
@@ -39,6 +45,35 @@ public class TicketController {
         }
         
         return ResponseEntity.ok(ticketRepository.findAllByUser(oUser.get()));
+    }
+    
+    @GetMapping("projection/{id}")
+    public ResponseEntity<Iterable<Ticket>> getByProjection(@PathVariable Integer id) {
+        Optional<Projection> oProjection = projectionRepository.findById(id);
+        if (!oProjection.isPresent()) {
+            return ResponseEntity.notFound().build();   
+        }
+        
+        return ResponseEntity.ok(ticketRepository.findAllByProjection(oProjection.get()));
+    }
+    
+    @PostMapping("")
+    @Secured({ "ROLE_ADMIN", "ROLE_USER" })
+    public ResponseEntity<Ticket> post(@RequestBody Ticket ticket) {
+        Iterable<Ticket> iTicket = ticketRepository.findAllByRowAndSeat(ticket.getRow(), ticket.getSeat());
+        
+        boolean reserved = false;
+        for (Ticket t : iTicket) {
+            if (ticket.getProjection().getId() == t.getProjection().getId()) {
+                reserved = true;
+            }
+        }
+        
+        if (reserved) {
+            return ResponseEntity.badRequest().build();
+        }
+        ticket.setId(null);
+        return ResponseEntity.ok(ticketRepository.save(ticket));
     }
     
     @GetMapping("/{id}")
