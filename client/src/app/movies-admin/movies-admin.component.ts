@@ -11,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class MoviesAdminComponent implements OnInit {
 
   private movies: Movie[];
-  private displayedColumns = ['title', 'description', 'length', 'rate', 'delete'];
+  private displayedColumns = ['title', 'description', 'length', 'rate'];
 
   constructor(private movieService: MovieService, private authService: AuthService) { }
 
