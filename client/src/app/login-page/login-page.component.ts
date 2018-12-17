@@ -32,7 +32,7 @@ import { Router } from '@angular/router';
       await this.authService.login(username, password);
       this.router.navigate(['/']);
     } catch (e) {
-      this.message = 'Sikertelen bejelentkezés!';
+      this.message = 'Login failed!';
     }
   }
 }

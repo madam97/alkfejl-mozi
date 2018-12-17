@@ -82,8 +82,8 @@ export class BuyTicketFormComponent implements OnInit {
             id: null,
             projection: this.projection,
             user: this.authService.user,
-            row: i,
-            seat: j
+            row: i+1,
+            seat: j+1
           } as Ticket);
         }
       }
