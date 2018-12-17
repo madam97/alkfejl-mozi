@@ -109,8 +109,6 @@ GET | /projections/{id} | az adott ID-vel rendelkező vetítés
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /projections | a belépett felhasználó összes rendelése
-GET | /projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelése
 GET | /tickets/user/{id} | az adott felhasználó jegyei
 POST | /projections | a belépett felhasználónak létrehoz egy új rendelést | 
 DELETE | /projections/{id} | a belépett felhasználó adott ID-vel rendelkező rendelését törli
@@ -120,7 +118,6 @@ DELETE | /tickets/{id}/{ticketid} | adott felhasználó, adott jegyének törlé
 
 Metódus | Request | Leírás
 ------- | ------- | ------
-GET | /users | összes felhasználó
 GET | /users/{id} | az adott ID-vel rendelkező felhasználó
 GET | /users/{id}/projections | az adott ID-vel rendelkező felhasználó vetítése, melyekre jegyet vett
 GET | /projections/{id}/users | az adott ID-vel rendelkező vetítésre jegyet vett felhasználók
@@ -130,10 +127,8 @@ POST | /movies | új film
 POST | /projections | új vetítés
 PUT | /movies | megadott film adatainak módosítása
 PUT | /projections | megadott vetítés adatainak módosítása
-PATCH | /users/{id}/to-admin   | a megadott felhasználót adminná teszi
 DELETE | /movies/{id} | megadott filmet törli, és a hozzá tartozó vetítéseket és rendeléseket
 DELETE | /projections/{id} | megadott vetítést törli, és a hozzá tartozó rendeléseket
-DELETE | /users/{id} | megadott felhasználó törli, és a hozzá tartozó rendeléseket
 DELETE | /tickets/{id} | az adott jegy törlése
 
 ### Frontend terv képek
