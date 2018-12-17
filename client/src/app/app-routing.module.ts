@@ -11,6 +11,7 @@ import { NewProjectionComponent } from './new-projection/new-projection.componen
 import { NewMovieComponent } from './new-movie/new-movie.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { MoviesAdminComponent } from './movies-admin/movies-admin.component';
+import { ProjectionsAdminComponent } from './projections-admin/projections-admin.component';
 
 const routes: Route[] = [
   { path: '', component:  HomeComponent},
@@ -23,6 +24,7 @@ const routes: Route[] = [
   { path: 'new-projection', component: NewProjectionComponent, canActivate: [AuthGuard]},
   { path: 'tickets', component: TicketsComponent, canActivate: [AuthGuard]},
   { path: 'movies-admin', component:  MoviesAdminComponent},
+  { path: 'projections-admin', component:  ProjectionsAdminComponent},
 ];
 
 @NgModule({

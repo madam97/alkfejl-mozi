@@ -1,6 +1,8 @@
 <h2>
-  Reservation: {{ _projection?.movie.title }} {{ _projection?.time | date:'yyyy/MM/dd HH:mm' }}
+  {{ _projection?.movie.title }} - {{ _projection?.time | date:'yyyy/MM/dd HH:mm' }}
 </h2>
+
+<p>One ticket price is: {{ _projection.price }} Ft</p>
 
 <app-buy-ticket-form [projection]="_projection"
                       (save)="onSave($event)">
